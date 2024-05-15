@@ -1,17 +1,19 @@
 #!groovy
 pipeline {
   agent any
+  tools {
+    jdk 'jdk17'
+    Maven 'maven3'
+  }
   stages {
-    stage('Maven Install') {
+    stage('Compile mavev') {
       steps {
-        sh 'mvn clean install'
+        sh 'mvn test'
       }
     }
-    stage('Docker Build') {
+    stage('test envirnment') {
       steps {
-        scripts{
-            sh 'docker build -t shanem/spring-petclinic:latest .'
-        }
+        sh 'mvn test'
         
       }
     }
