@@ -17,15 +17,12 @@ pipeline {
         
       }
     }
-    stage('Build Docker') {
+   stage('Docker Build') {
+      agent any
       steps {
-        scripts{
-            sh 'docker build -t megersaj/spring-petclinic:latest .'
-
-        }
-        
+        sh 'docker build -t megersaj/spring-petclinic:latest .'
       }
     }
+    }
   }
-}
 
