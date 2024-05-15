@@ -17,5 +17,15 @@ pipeline {
         
       }
     }
+    tage('Build Docker') {
+      steps {
+        scripts{
+            sh 'docker build -t megersaj/spring-petclinic:latest .'
+
+        }
+        
+      }
+    }
   }
 }
+
