@@ -1,6 +1,6 @@
 #!groovy
 pipeline {
-  agent nany
+  agent any
   stages {
     stage('Maven Install') {
       steps {
