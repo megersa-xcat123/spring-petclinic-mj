@@ -1,22 +1,27 @@
 
+#!groovy
 pipeline {
-  agent none
+  agent any
+  tools {
+    jdk 'jdk17'
+    maven 'maven3'
+  }
   stages {
-    stage('Maven Install') {
-      agent {
-        docker {
-          image 'maven:3.5.0'
-        }
-      }
+    stage('Compile mavev') {
       steps {
-        sh 'mvn clean install'
+        sh 'mvn compile'
       }
     }
-    stage('Docker Build') {
-      agent any
+    stage('test envirnment') {
+      steps {
+        sh 'mvn test'
+        
+      }
+    }
+   stage('Docker Build') {
       steps {
         sh 'docker build -t megersaj/spring-petclinic:latest .'
       }
     }
+    }
   }
-}
