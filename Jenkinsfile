@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Compile mavev') {
       steps {
-        sh 'mvn test'
+        sh 'mvn compile'
       }
     }
     stage('test envirnment') {
